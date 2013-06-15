@@ -9,9 +9,8 @@ public class PrimeFactors {
 	List<Integer> primes = new ArrayList<Integer>();
 	int factorCandidate = 2;
 	while (number > 1) {
-	    while (number % factorCandidate == 0) {
+	    for (; number % factorCandidate == 0; number /= factorCandidate) {
 		primes.add(factorCandidate);
-		number /= factorCandidate;
 	    }
 	    factorCandidate++;
 	}
