@@ -15,9 +15,6 @@ public class PrimeFactors {
 	    }
 	    factorCandidate++;
 	}
-	if (number > 1) {
-	    primes.add(number);
-	}
 	return primes;
     }
 }
