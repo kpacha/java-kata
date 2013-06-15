@@ -14,23 +14,23 @@ import com.github.kpacha.jkata.fizzBuzz.FizzBuzz;
 @RunWith(Parameterized.class)
 public class FizzBuzzTest extends TestCase {
 
-    private List<Object> list;
-    private int total;
+    private Object result;
+    private int number;
 
-    public FizzBuzzTest(int total, List<Object> list) {
-	this.total = total;
-	this.list = list;
+    public FizzBuzzTest(int number, Object result) {
+	this.number = number;
+	this.result = result;
     }
 
     @Test
     public void testGenerator() {
-	assertEquals(list, FizzBuzz.generate(total));
+	assertEquals(result, FizzBuzz.generate(number));
     }
 
     @Parameterized.Parameters
     public static List<Object[]> data() {
-	final Object[][] objects = { { 1, Arrays.asList(1) },
-		{ 2, Arrays.asList(1, 2) }, { 3, Arrays.asList(1, 2, "Fizz") } };
+	final Object[][] objects = { { 1, 1 }, { 2, 2 }, { 3, "Fizz" },
+		{ 4, 4 } };
 	return Arrays.asList(objects);
     }
 }
