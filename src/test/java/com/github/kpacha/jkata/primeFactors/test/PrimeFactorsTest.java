@@ -20,6 +20,10 @@ public class PrimeFactorsTest extends TestCase {
 	assertEquals(list(3), PrimeFactors.generate(3));
     }
 
+    public void testFour() throws Exception {
+	assertEquals(list(2, 2), PrimeFactors.generate(4));
+    }
+
     private List<Integer> list(int... ints) {
 	List<Integer> list = new ArrayList<Integer>();
 	for (int i : ints) {
