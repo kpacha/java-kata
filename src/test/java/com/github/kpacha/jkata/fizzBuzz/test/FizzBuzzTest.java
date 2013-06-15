@@ -30,7 +30,8 @@ public class FizzBuzzTest extends TestCase {
     @Parameterized.Parameters
     public static List<Object[]> data() {
 	final Object[][] objects = { { 1, 1 }, { 2, 2 }, { 3, "Fizz" },
-		{ 4, 4 }, { 5, "Buzz" }, { 6, "Fizz" } };
+		{ 4, 4 }, { 5, "Buzz" }, { 6, "Fizz" }, { 9, "Fizz" },
+		{ 10, "Buzz" } };
 	return Arrays.asList(objects);
     }
 }
