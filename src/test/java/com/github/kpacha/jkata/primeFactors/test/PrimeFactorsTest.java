@@ -1,5 +1,6 @@
 package com.github.kpacha.jkata.primeFactors.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -12,6 +13,6 @@ public class PrimeFactorsTest extends TestCase {
     }
 
     private List<Integer> list() {
-	return null;
+	return new ArrayList<Integer>();
     }
 }
