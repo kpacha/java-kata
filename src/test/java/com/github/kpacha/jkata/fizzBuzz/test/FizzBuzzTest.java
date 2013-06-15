@@ -31,7 +31,8 @@ public class FizzBuzzTest extends TestCase {
     public static List<Object[]> data() {
 	final Object[][] objects = { { 1, 1 }, { 2, 2 }, { 3, "Fizz" },
 		{ 4, 4 }, { 5, "Buzz" }, { 6, "Fizz" }, { 9, "Fizz" },
-		{ 10, "Buzz" }, { 11, 11 }, { 12, "Fizz" }, { 15, "FizzBuzz" } };
+		{ 10, "Buzz" }, { 11, 11 }, { 12, "Fizz" }, { 15, "FizzBuzz" },
+		{ 18, "Fizz" }, { 20, "Buzz" }, { 22, 22 }, { 30, "FizzBuzz" } };
 	return Arrays.asList(objects);
     }
 }
