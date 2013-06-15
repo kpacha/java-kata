@@ -6,7 +6,7 @@ public class FizzBuzz {
 	Object answer = null;
 	if (total % 3 == 0) {
 	    answer = "Fizz";
-	} else if (total == 5) {
+	} else if (total % 5 == 0) {
 	    answer = "Buzz";
 	} else {
 	    answer = total;
