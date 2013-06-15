@@ -8,7 +8,11 @@ public class FizzBuzz {
     public static List<Object> generate(int total) {
 	List<Object> answer = new ArrayList<Object>(total);
 	for (int i = 1; i <= total; i++) {
-	    answer.add(i);
+	    if (i == 3) {
+		answer.add("Fizz");
+	    } else {
+		answer.add(i);
+	    }
 	}
 	return answer;
     }
