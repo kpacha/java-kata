@@ -11,4 +11,8 @@ public class FizzBuzzTest extends TestCase {
     public void testOne() {
 	assertEquals(Arrays.asList(1), FizzBuzz.generate(1));
     }
+
+    public void testTwo() {
+	assertEquals(Arrays.asList(1, 2), FizzBuzz.generate(2));
+    }
 }
