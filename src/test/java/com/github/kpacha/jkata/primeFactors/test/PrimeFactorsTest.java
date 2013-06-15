@@ -1,54 +1,45 @@
 package com.github.kpacha.jkata.primeFactors.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
 import com.github.kpacha.jkata.primeFactors.PrimeFactors;
 
+@RunWith(Parameterized.class)
 public class PrimeFactorsTest extends TestCase {
-    public void testOne() throws Exception {
-	assertEquals(list(), PrimeFactors.generate(1));
+    private int number;
+    private List<Integer> factors;
+
+    public PrimeFactorsTest(int number, List<Integer> factors) {
+	this.number = number;
+	this.factors = factors;
     }
 
-    public void testTwo() throws Exception {
-	assertEquals(list(2), PrimeFactors.generate(2));
+    @Test
+    public void testGenerator() throws Exception {
+	assertEquals(factors, PrimeFactors.generate(number));
     }
 
-    public void testThree() throws Exception {
-	assertEquals(list(3), PrimeFactors.generate(3));
-    }
-
-    public void testFour() throws Exception {
-	assertEquals(list(2, 2), PrimeFactors.generate(4));
-    }
-
-    public void testFive() throws Exception {
-	assertEquals(list(5), PrimeFactors.generate(5));
-    }
-
-    public void testSix() throws Exception {
-	assertEquals(list(2, 3), PrimeFactors.generate(6));
-    }
-
-    public void testSeven() throws Exception {
-	assertEquals(list(7), PrimeFactors.generate(7));
-    }
-
-    public void testEight() throws Exception {
-	assertEquals(list(2, 2, 2), PrimeFactors.generate(8));
-    }
-
-    public void testNine() throws Exception {
-	assertEquals(list(3, 3), PrimeFactors.generate(9));
-    }
-
-    private List<Integer> list(int... ints) {
-	List<Integer> list = new ArrayList<Integer>();
-	for (int i : ints) {
-	    list.add(i);
-	}
-	return list;
+    @Parameterized.Parameters
+    public static List<Object[]> data() {
+	final Object[][] objects = { { 1, new ArrayList() },
+		{ 2, Arrays.asList(2) }, { 3, Arrays.asList(3) },
+		{ 4, Arrays.asList(2, 2) }, { 5, Arrays.asList(5) },
+		{ 6, Arrays.asList(2, 3) }, { 7, Arrays.asList(7) },
+		{ 8, Arrays.asList(2, 2, 2) }, { 9, Arrays.asList(3, 3) },
+		{ 10, Arrays.asList(2, 5) }, { 11, Arrays.asList(11) },
+		{ 12, Arrays.asList(2, 2, 3) }, { 13, Arrays.asList(13) },
+		{ 14, Arrays.asList(2, 7) }, { 15, Arrays.asList(3, 5) },
+		{ 16, Arrays.asList(2, 2, 2, 2) }, { 17, Arrays.asList(17) },
+		{ 18, Arrays.asList(2, 3, 3) }, { 19, Arrays.asList(19) },
+		{ 20, Arrays.asList(2, 2, 5) } };
+	return Arrays.asList(objects);
     }
 }
