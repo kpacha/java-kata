@@ -31,7 +31,8 @@ public class RomanNumeralsTest extends TestCase {
     public static List<Object[]> data() {
 	final Object[][] objects = { { 1, "I" }, { 2, "II" }, { 3, "III" },
 		{ 4, "IV" }, { 5, "V" }, { 6, "VI" }, { 7, "VII" },
-		{ 8, "VIII" }, { 9, "IX" }, { 10, "X" } };
+		{ 8, "VIII" }, { 9, "IX" }, { 10, "X" }, { 14, "XIV" },
+		{ 19, "XIX" }, { 21, "XXI" }, { 40, "XL" } };
 	return Arrays.asList(objects);
     }
 }
