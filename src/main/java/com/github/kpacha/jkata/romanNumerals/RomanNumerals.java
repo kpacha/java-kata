@@ -36,9 +36,11 @@ public class RomanNumerals {
 
     public static int convert(String roman) {
 	int arabic = 0;
-	while (roman.startsWith("I")) {
-	    arabic++;
-	    roman = roman.substring(1);
+	for (RomanArabicPair equivalence : eqivalencies) {
+	    while (roman.startsWith(equivalence.getRoman())) {
+		arabic += equivalence.getArabic();
+		roman = roman.substring(equivalence.getRoman().length());
+	    }
 	}
 	return arabic;
     }
