@@ -29,7 +29,7 @@ public class RomanNumeralsTest extends TestCase {
 
     @Parameterized.Parameters
     public static List<Object[]> data() {
-	final Object[][] objects = { { 1, "I" } };
+	final Object[][] objects = { { 1, "I" }, { 2, "II" } };
 	return Arrays.asList(objects);
     }
 }
