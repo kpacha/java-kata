@@ -3,6 +3,7 @@ package com.github.kpacha.jkata.romanNumerals.test;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -15,6 +16,11 @@ public class RomanNumeralsTest {
     public RomanNumeralsTest(int number, String result) {
 	this.result = result;
 	this.number = number;
+    }
+
+    @Test
+    public void testConverter() {
+	assertEquals(result, RomanNumerals.convert(number));
     }
 
     @Parameterized.Parameters
