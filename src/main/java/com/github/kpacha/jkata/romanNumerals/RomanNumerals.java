@@ -33,4 +33,8 @@ public class RomanNumerals {
 	}
 	return roman;
     }
+
+    public static int convert(String roman) {
+	return 1;
+    }
 }
