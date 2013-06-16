@@ -35,7 +35,8 @@ public class RomanNumeralsTest extends TestCase {
 		{ 19, "XIX" }, { 21, "XXI" }, { 40, "XL" }, { 50, "L" },
 		{ 59, "LIX" }, { 66, "LXVI" }, { 80, "LXXX" }, { 90, "XC" },
 		{ 100, "C" }, { 400, "CD" }, { 500, "D" }, { 900, "CM" },
-		{ 1000, "M" } };
+		{ 999, "CMXCIX" }, { 1000, "M" }, { 1492, "MCDXCII" },
+		{ 1990, "MCMXC" }, { 2008, "MMVIII" }, { 3498, "MMMCDXCVIII" } };
 	return Arrays.asList(objects);
     }
 }
