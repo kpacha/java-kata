@@ -3,12 +3,16 @@ package com.github.kpacha.jkata.romanNumerals.test;
 import java.util.Arrays;
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import com.github.kpacha.jkata.romanNumerals.RomanNumerals;
+
 @RunWith(Parameterized.class)
-public class RomanNumeralsTest {
+public class RomanNumeralsTest extends TestCase {
 
     private String result;
     private int number;
