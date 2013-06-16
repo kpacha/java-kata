@@ -32,7 +32,8 @@ public class RomanNumeralsTest extends TestCase {
 	final Object[][] objects = { { 1, "I" }, { 2, "II" }, { 3, "III" },
 		{ 4, "IV" }, { 5, "V" }, { 6, "VI" }, { 7, "VII" },
 		{ 8, "VIII" }, { 9, "IX" }, { 10, "X" }, { 14, "XIV" },
-		{ 19, "XIX" }, { 21, "XXI" }, { 40, "XL" }, { 50, "L" } };
+		{ 19, "XIX" }, { 21, "XXI" }, { 40, "XL" }, { 50, "L" },
+		{ 59, "LIX" }, { 66, "LXVI" }, { 80, "LXXX" }, { 90, "XC" } };
 	return Arrays.asList(objects);
     }
 }
