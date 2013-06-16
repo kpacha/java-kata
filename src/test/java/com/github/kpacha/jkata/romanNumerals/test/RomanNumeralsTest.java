@@ -14,17 +14,22 @@ import com.github.kpacha.jkata.romanNumerals.RomanNumerals;
 @RunWith(Parameterized.class)
 public class RomanNumeralsTest extends TestCase {
 
-    private String result;
-    private int number;
+    private String roman;
+    private int arabic;
 
-    public RomanNumeralsTest(int number, String result) {
-	this.result = result;
-	this.number = number;
+    public RomanNumeralsTest(int arabic, String roman) {
+	this.roman = roman;
+	this.arabic = arabic;
     }
 
     @Test
-    public void testConverter() {
-	assertEquals(result, RomanNumerals.convert(number));
+    public void testConverterToRoman() {
+	assertEquals(roman, RomanNumerals.convert(arabic));
+    }
+
+    @Test
+    public void testConverterToArabic() {
+	assertEquals(arabic, RomanNumerals.convert(roman));
     }
 
     @Parameterized.Parameters
