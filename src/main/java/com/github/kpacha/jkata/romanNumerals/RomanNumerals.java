@@ -7,6 +7,7 @@ public class RomanNumerals {
 
     private static List<RomanArabicPair> eqivalencies = new ArrayList<RomanArabicPair>() {
 	{
+	    add(new RomanArabicPair("M", 1000));
 	    add(new RomanArabicPair("CM", 900));
 	    add(new RomanArabicPair("D", 500));
 	    add(new RomanArabicPair("CD", 400));
