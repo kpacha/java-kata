@@ -35,12 +35,11 @@ public class RomanNumerals {
     }
 
     public static int convert(String roman) {
-	if (roman.startsWith("III")) {
-	    return 3;
+	int arabic = 0;
+	while (roman.startsWith("I")) {
+	    arabic++;
+	    roman = roman.substring(1);
 	}
-	if (roman.startsWith("II")) {
-	    return 2;
-	}
-	return 1;
+	return arabic;
     }
 }
