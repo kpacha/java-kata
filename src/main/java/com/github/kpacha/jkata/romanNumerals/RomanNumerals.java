@@ -35,6 +35,9 @@ public class RomanNumerals {
     }
 
     public static int convert(String roman) {
+	if (roman.startsWith("II")) {
+	    return 2;
+	}
 	return 1;
     }
 }
