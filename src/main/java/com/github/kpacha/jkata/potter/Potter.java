@@ -17,9 +17,10 @@ public class Potter {
     };
 
     public static double priceFor(int... items) {
-	double total = 8 * items[0] * getDiscountFor(items[0]);
-	if (items.length == 2)
-	    total += 8 * items[1] * getDiscountFor(items[1]);
+	double total = 0.0;
+	for (int quantity : items) {
+	    total += 8 * quantity * getDiscountFor(quantity);
+	}
 	return total;
     }
 

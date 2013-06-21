@@ -20,3 +20,9 @@ A simple FizzBuzz implementation
 
 A simple number converter - from Roman to Arabic and reverse.
 
+###Potter Kata
+
+(from http://codingdojo.org/cgi-bin/wiki.pl?KataPotter)
+
+A simple discount calculator.
+
