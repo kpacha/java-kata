@@ -7,11 +7,11 @@ import com.github.kpacha.jkata.potter.Potter;
 public class PotterTest extends TestCase {
 
     public void testEmptyOrder() {
-	assertEquals(0, Potter.priceFor(0));
+	assertEquals(0.0, Potter.priceFor(0));
     }
 
     public void testSingleBookOrder() {
-	assertEquals(8, Potter.priceFor(1));
+	assertEquals(8.0, Potter.priceFor(1));
     }
 
     public void testTwoBookOrder() {
