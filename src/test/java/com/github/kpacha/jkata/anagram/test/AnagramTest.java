@@ -17,6 +17,11 @@ public class AnagramTest extends TestCase {
 	assertEquals(buildSet("on", "no"), Anagram.generate("no"));
     }
 
+    public void testThreeLetterWord() {
+	assertEquals(buildSet("abc", "acb", "bac", "bca", "cab", "cba"),
+		Anagram.generate("abc"));
+    }
+
     private Set<String> buildSet(String... words) {
 	Set<String> result = new HashSet<String>();
 	for (String word : words) {
