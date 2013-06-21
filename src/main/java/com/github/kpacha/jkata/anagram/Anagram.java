@@ -10,17 +10,8 @@ public class Anagram {
     public static Set<String> generate(String source) {
 	Set<String> result = new HashSet<String>();
 	List<Character> chars = getAsCharacterList(source);
-	if (chars.size() == 4) {
-	    for (int currentChar = 0; currentChar < 4; currentChar++) {
-		Character character = chars.get(currentChar);
-		for (String part : Anagram.generate(new String(getCharsToMix(
-			chars, character)))) {
-		    result.add(character + part);
-		}
-	    }
-	}
-	if (chars.size() == 3) {
-	    for (int currentChar = 0; currentChar < 3; currentChar++) {
+	if (chars.size() > 2) {
+	    for (int currentChar = 0; currentChar < chars.size(); currentChar++) {
 		Character character = chars.get(currentChar);
 		for (String part : Anagram.generate(new String(getCharsToMix(
 			chars, character)))) {
