@@ -11,32 +11,21 @@ public class Anagram {
 	Set<String> result = new HashSet<String>();
 	List<Character> chars = getAsCharacterList(source);
 	if (chars.size() == 3) {
-	    Character character = chars.get(0);
-	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
-		    character)))) {
-		result.add(character + part);
-	    }
-	    character = chars.get(1);
-	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
-		    character)))) {
-		result.add(character + part);
-	    }
-	    character = chars.get(2);
-	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
-		    character)))) {
-		result.add(character + part);
+	    for (int currentChar = 0; currentChar < 3; currentChar++) {
+		Character character = chars.get(currentChar);
+		for (String part : Anagram.generate(new String(getCharsToMix(
+			chars, character)))) {
+		    result.add(character + part);
+		}
 	    }
 	}
 	if (chars.size() == 2) {
-	    Character character = chars.get(0);
-	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
-		    character)))) {
-		result.add(character + part);
-	    }
-	    character = chars.get(1);
-	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
-		    character)))) {
-		result.add(character + part);
+	    for (int currentChar = 0; currentChar < 2; currentChar++) {
+		Character character = chars.get(currentChar);
+		for (String part : Anagram.generate(new String(getCharsToMix(
+			chars, character)))) {
+		    result.add(character + part);
+		}
 	    }
 	}
 	if (chars.size() == 1) {
