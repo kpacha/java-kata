@@ -9,11 +9,7 @@ public class Anagram {
 
     public static Set<String> generate(String source) {
 	Set<String> result = new HashSet<String>();
-	List<Character> chars = new ArrayList<Character>();
-	for (char c : source.toCharArray()) {
-	    chars.add(c);
-	}
-
+	List<Character> chars = getAsCharacterList(source);
 	if (chars.size() == 3) {
 	    for (String part : Anagram.generate(source.substring(1))) {
 		result.add(source.substring(0, 1) + part);
@@ -39,4 +35,13 @@ public class Anagram {
 	}
 	return result;
     }
+
+    private static List<Character> getAsCharacterList(String source) {
+	List<Character> chars = new ArrayList<Character>();
+	for (char c : source.toCharArray()) {
+	    chars.add(c);
+	}
+	return chars;
+    }
+
 }
