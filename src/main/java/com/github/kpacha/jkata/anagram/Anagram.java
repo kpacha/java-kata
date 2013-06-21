@@ -20,9 +20,16 @@ public class Anagram {
 	    }
 	}
 	if (source.length() == 2) {
-	    result.add(source.substring(1) + source.substring(0, 1));
+	    for (String part : Anagram.generate(source.substring(0, 1))) {
+		result.add(source.substring(1) + part);
+	    }
+	    for (String part : Anagram.generate(source.substring(1))) {
+		result.add(source.substring(0, 1) + part);
+	    }
 	}
-	result.add(source);
+	if (source.length() == 1) {
+	    result.add(source);
+	}
 	return result;
     }
 }
