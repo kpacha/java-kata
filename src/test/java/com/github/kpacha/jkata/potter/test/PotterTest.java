@@ -17,4 +17,8 @@ public class PotterTest extends TestCase {
     public void testTwoBookOrder() {
 	assertEquals(8 * 2 * 0.95, Potter.priceFor(2));
     }
+
+    public void testThreeBookOrder() {
+	assertEquals(8 * 3 * 0.90, Potter.priceFor(3));
+    }
 }
