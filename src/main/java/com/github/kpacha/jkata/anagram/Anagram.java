@@ -21,23 +21,34 @@ public class Anagram {
 
     private static Set<String> generateAnagrams(String source) {
 	Set<String> result;
-	result = new HashSet<String>();
-	List<Character> chars = getAsCharacterList(source);
-	if (chars.size() > 2) {
-	    for (int currentChar = 0; currentChar < chars.size(); currentChar++) {
-		Character character = chars.get(currentChar);
-		for (String part : Anagram.generate(new String(getCharsToMix(
-			chars, character)))) {
-		    result.add(character + part);
-		}
-	    }
+	if (source.length() > 2) {
+	    result = generateRecurrently(source);
 	} else {
-	    if (chars.size() == 2) {
-		result.add(source.substring(1) + source.substring(0, 1));
-	    }
-	    result.add(source);
+	    result = generateDirectly(source);
 	}
 	processedAnagrams.put(source, result);
+	return result;
+    }
+
+    private static Set<String> generateDirectly(String source) {
+	Set<String> result = new HashSet<String>();
+	if (source.length() == 2) {
+	    result.add(source.substring(1) + source.substring(0, 1));
+	}
+	result.add(source);
+	return result;
+    }
+
+    private static Set<String> generateRecurrently(String source) {
+	List<Character> chars = getAsCharacterList(source);
+	Set<String> result = new HashSet<String>();
+	for (int currentChar = 0; currentChar < chars.size(); currentChar++) {
+	    Character character = chars.get(currentChar);
+	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
+		    character)))) {
+		result.add(character + part);
+	    }
+	}
 	return result;
     }
 
