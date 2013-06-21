@@ -26,3 +26,12 @@ A simple number converter - from Roman to Arabic and reverse.
 
 A simple discount calculator.
 
+###Anagram Kata
+
+Write a program to generate all potential anagrams of an input string.
+For example, the potential anagrams of abcd are
+abcd, abdc, acbd, acdb, adbc, adcb,
+bacd, badc, bcad, bcda, bdac, bdca,
+cabd, cadb, cbad, cbda, cdab, cdba,
+dabc, dacb, dbac, dbca, dcab, dcba
+
