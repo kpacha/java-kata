@@ -12,14 +12,8 @@ public class Anagram {
 	List<Character> chars = getAsCharacterList(source);
 	if (chars.size() == 3) {
 	    Character character = chars.get(0);
-	    List<Character> characters = new ArrayList<Character>(chars);
-	    characters.remove(character);
-	    char[] charArrayToMix = new char[characters.size()];
-	    for (int currentChar = 0; currentChar < characters.size(); currentChar++) {
-		charArrayToMix[currentChar] = characters.get(currentChar);
-	    }
-	    String charsToMix = new String(charArrayToMix);
-	    for (String part : Anagram.generate(charsToMix)) {
+	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
+		    character)))) {
 		result.add(source.substring(0, 1) + part);
 	    }
 	    for (String part : Anagram.generate(source.substring(0, 1)
@@ -42,6 +36,17 @@ public class Anagram {
 	    result.add(source);
 	}
 	return result;
+    }
+
+    private static char[] getCharsToMix(List<Character> chars,
+	    Character character) {
+	List<Character> characters = new ArrayList<Character>(chars);
+	characters.remove(character);
+	char[] charArrayToMix = new char[characters.size()];
+	for (int currentChar = 0; currentChar < characters.size(); currentChar++) {
+	    charArrayToMix[currentChar] = characters.get(currentChar);
+	}
+	return charArrayToMix;
     }
 
     private static List<Character> getAsCharacterList(String source) {
