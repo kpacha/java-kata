@@ -16,8 +16,10 @@ public class Potter {
 	}
     };
 
-    public static double priceFor(int items) {
-	return 8 * items * getDiscountFor(items);
+    public static double priceFor(int... items) {
+	if (items.length == 2)
+	    return 8 * items[0] * getDiscountFor(items[0]) + 8;
+	return 8 * items[0] * getDiscountFor(items[0]);
     }
 
     private static double getDiscountFor(int items) {
