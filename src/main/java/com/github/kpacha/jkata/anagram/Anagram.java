@@ -14,22 +14,29 @@ public class Anagram {
 	    Character character = chars.get(0);
 	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
 		    character)))) {
-		result.add(source.substring(0, 1) + part);
+		result.add(character + part);
 	    }
-	    for (String part : Anagram.generate(source.substring(0, 1)
-		    + source.substring(2))) {
-		result.add(source.substring(1, 2) + part);
+	    character = chars.get(1);
+	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
+		    character)))) {
+		result.add(character + part);
 	    }
-	    for (String part : Anagram.generate(source.substring(0, 2))) {
-		result.add(source.substring(2) + part);
+	    character = chars.get(2);
+	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
+		    character)))) {
+		result.add(character + part);
 	    }
 	}
 	if (chars.size() == 2) {
-	    for (String part : Anagram.generate(source.substring(0, 1))) {
-		result.add(source.substring(1) + part);
+	    Character character = chars.get(0);
+	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
+		    character)))) {
+		result.add(character + part);
 	    }
-	    for (String part : Anagram.generate(source.substring(1))) {
-		result.add(source.substring(0, 1) + part);
+	    character = chars.get(1);
+	    for (String part : Anagram.generate(new String(getCharsToMix(chars,
+		    character)))) {
+		result.add(character + part);
 	    }
 	}
 	if (chars.size() == 1) {
