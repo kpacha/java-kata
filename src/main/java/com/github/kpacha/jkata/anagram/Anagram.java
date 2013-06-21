@@ -11,7 +11,15 @@ public class Anagram {
 	Set<String> result = new HashSet<String>();
 	List<Character> chars = getAsCharacterList(source);
 	if (chars.size() == 3) {
-	    for (String part : Anagram.generate(source.substring(1))) {
+	    Character character = chars.get(0);
+	    List<Character> characters = new ArrayList<Character>(chars);
+	    characters.remove(character);
+	    char[] charArrayToMix = new char[characters.size()];
+	    for (int currentChar = 0; currentChar < characters.size(); currentChar++) {
+		charArrayToMix[currentChar] = characters.get(currentChar);
+	    }
+	    String charsToMix = new String(charArrayToMix);
+	    for (String part : Anagram.generate(charsToMix)) {
 		result.add(source.substring(0, 1) + part);
 	    }
 	    for (String part : Anagram.generate(source.substring(0, 1)
