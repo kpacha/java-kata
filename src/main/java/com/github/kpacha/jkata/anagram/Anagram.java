@@ -29,13 +29,8 @@ public class Anagram {
 	    }
 	}
 	if (chars.size() == 2) {
-	    for (int currentChar = 0; currentChar < 2; currentChar++) {
-		Character character = chars.get(currentChar);
-		for (String part : Anagram.generate(new String(getCharsToMix(
-			chars, character)))) {
-		    result.add(character + part);
-		}
-	    }
+	    result.add(source);
+	    result.add(source.substring(1) + source.substring(0, 1));
 	}
 	if (chars.size() == 1) {
 	    result.add(source);
