@@ -22,6 +22,15 @@ public class AnagramTest extends TestCase {
 		Anagram.generate("abc"));
     }
 
+    public void testFourLetterWord() {
+	assertEquals(
+		buildSet("abcd", "abdc", "acbd", "acdb", "adbc", "adcb",
+			"bacd", "badc", "bcad", "bcda", "bdac", "bdca", "cabd",
+			"cadb", "cbad", "cbda", "cdab", "cdba", "dabc", "dacb",
+			"dbac", "dbca", "dcab", "dcba"),
+		Anagram.generate("abcd"));
+    }
+
     private Set<String> buildSet(String... words) {
 	Set<String> result = new HashSet<String>();
 	for (String word : words) {
