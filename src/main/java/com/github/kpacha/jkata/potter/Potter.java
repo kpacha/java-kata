@@ -7,6 +7,7 @@ public class Potter {
 
     private static Map<Integer, Double> discount = new HashMap<Integer, Double>() {
 	{
+	    put(5, 0.75);
 	    put(4, 0.8);
 	    put(3, 0.9);
 	    put(2, 0.95);
