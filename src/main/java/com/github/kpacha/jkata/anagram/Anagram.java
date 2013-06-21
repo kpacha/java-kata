@@ -1,30 +1,36 @@
 package com.github.kpacha.jkata.anagram;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Anagram {
 
+    private static Map<String, Set<String>> processedAnagrams = new HashMap<String, Set<String>>();
+
     public static Set<String> generate(String source) {
-	Set<String> result = new HashSet<String>();
-	List<Character> chars = getAsCharacterList(source);
-	if (chars.size() > 2) {
-	    for (int currentChar = 0; currentChar < chars.size(); currentChar++) {
-		Character character = chars.get(currentChar);
-		for (String part : Anagram.generate(new String(getCharsToMix(
-			chars, character)))) {
-		    result.add(character + part);
+	Set<String> result = processedAnagrams.get(source);
+	if (result == null) {
+	    result = new HashSet<String>();
+	    List<Character> chars = getAsCharacterList(source);
+	    if (chars.size() > 2) {
+		for (int currentChar = 0; currentChar < chars.size(); currentChar++) {
+		    Character character = chars.get(currentChar);
+		    for (String part : Anagram.generate(new String(
+			    getCharsToMix(chars, character)))) {
+			result.add(character + part);
+		    }
 		}
+	    } else {
+		if (chars.size() == 2) {
+		    result.add(source.substring(1) + source.substring(0, 1));
+		}
+		result.add(source);
 	    }
-	}
-	if (chars.size() == 2) {
-	    result.add(source);
-	    result.add(source.substring(1) + source.substring(0, 1));
-	}
-	if (chars.size() == 1) {
-	    result.add(source);
+	    processedAnagrams.put(source, result);
 	}
 	return result;
     }
