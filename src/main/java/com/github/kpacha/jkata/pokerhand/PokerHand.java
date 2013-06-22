@@ -1,21 +1,24 @@
 package com.github.kpacha.jkata.pokerhand;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import com.github.kpacha.jkata.pokerhand.hand.FourOfAKind;
 import com.github.kpacha.jkata.pokerhand.hand.HigherCard;
 import com.github.kpacha.jkata.pokerhand.hand.Pair;
+import com.github.kpacha.jkata.pokerhand.hand.Straight;
 import com.github.kpacha.jkata.pokerhand.hand.ThreeOfAKind;
 import com.github.kpacha.jkata.pokerhand.hand.TwoPairs;
 
 public class PokerHand {
 
     private List<PokerCard> hand;
-    private static List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
+    private List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
 	{
 	    add(new FourOfAKind());
+	    add(new Straight());
 	    add(new ThreeOfAKind());
 	    add(new TwoPairs());
 	    add(new Pair());
@@ -31,6 +34,7 @@ public class PokerHand {
 	hand.add(new PokerCard(card3));
 	hand.add(new PokerCard(card4));
 	hand.add(new PokerCard(card5));
+	Collections.sort(hand);
     }
 
     public String findHand() {
