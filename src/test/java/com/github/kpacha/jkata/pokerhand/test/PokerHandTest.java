@@ -69,4 +69,10 @@ public class PokerHandTest extends TestCase {
 	PokerHand hand = new PokerHand("AH", "5H", "9S", "5S", "9C");
 	assertEquals("Two Pairs : 9&5", hand.findHand());
     }
+
+    @Test
+    public void testDetectThreeOfAKind() {
+	PokerHand hand = new PokerHand("AH", "5H", "5C", "5S", "9C");
+	assertEquals("Three Of A Kind : 5", hand.findHand());
+    }
 }
