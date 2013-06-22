@@ -18,13 +18,25 @@ public class PokerHand {
     }
 
     public String findHand() {
+	String result = findPair();
+	if (result != null)
+	    result = "Pair : " + result;
+	else
+	    result = "High Card : " + findHigherCard().getCardValue();
+	return result;
+    }
+
+    private String findPair() {
+	String result = null;
 	for (int i = 0; i < 4; i++) {
 	    for (int j = i + 1; j < 5; j++) {
-		if (hand.get(i).compareTo(hand.get(j)) == 0)
-		    return "Pair : " + hand.get(i).getCardValue();
+		if (hand.get(i).compareTo(hand.get(j)) == 0) {
+		    result = hand.get(i).getCardValue();
+		    continue;
+		}
 	    }
 	}
-	return "High Card : " + findHigherCard().getCardValue();
+	return result;
     }
 
     private PokerCard findHigherCard() {
