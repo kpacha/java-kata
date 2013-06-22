@@ -93,4 +93,10 @@ public class PokerHandTest extends TestCase {
 	PokerHand hand = new PokerHand("2H", "5H", "4C", "3S", "6D");
 	assertEquals("Straight : 2-6", hand.findHand());
     }
+
+    @Test
+    public void testDetectFlush() {
+	PokerHand hand = new PokerHand("2H", "5H", "4H", "AH", "TH");
+	assertEquals("Flush : H TO A", hand.findHand());
+    }
 }
