@@ -8,12 +8,16 @@ public class Tennis {
     public String getScore() {
 	if (isDeuce())
 	    return "Deuce";
-	if (playerOneScored == 4 && playerTwoScored == 3
-		|| playerOneScored == 5 && playerTwoScored == 4)
+	if (isAdvantage())
 	    return "Advantage Player 1";
 	if (playerOneScored == 4)
 	    return "Player 1 wins";
 	return (15 * playerOneScored) + " - " + (15 * playerTwoScored);
+    }
+
+    private boolean isAdvantage() {
+	return playerOneScored == 4 && playerTwoScored == 3
+		|| playerOneScored == 5 && playerTwoScored == 4;
     }
 
     private boolean isDeuce() {
