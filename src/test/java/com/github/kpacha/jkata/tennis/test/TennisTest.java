@@ -2,30 +2,39 @@ package com.github.kpacha.jkata.tennis.test;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.github.kpacha.jkata.tennis.Tennis;
 
 public class TennisTest extends TestCase {
 
+    private Tennis game;
+
+    @Before
+    public void setUp() {
+	game = new Tennis();
+    }
+
+    private void playerOneScores(int times) {
+	for (int counter = 0; counter < times; counter++)
+	    game.playerOneScores();
+    }
+
     @Test
     public void testInitialScore() {
-	Tennis game = new Tennis();
 	assertEquals("0 - 0", game.getScore());
     }
 
     @Test
     public void testFirstPointScore() {
-	Tennis game = new Tennis();
-	game.playerOneScores();
+	playerOneScores(1);
 	assertEquals("15 - 0", game.getScore());
     }
 
     @Test
     public void testSecondPointScore() {
-	Tennis game = new Tennis();
-	game.playerOneScores();
-	game.playerOneScores();
+	playerOneScores(2);
 	assertEquals("30 - 0", game.getScore());
     }
 }
