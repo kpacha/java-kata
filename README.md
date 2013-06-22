@@ -51,4 +51,10 @@ A tennis score calculator. The scoring system is rather simple:
 * If the player with advantage wins the ball he wins the game
 * If the player without advantage wins they are back at deuce.
 
+###PokerHands Kata
+
+(from http://codingdojo.org/cgi-bin/wiki.pl?KataPokerHands)
+
+Compare several pairs of poker hands and indicate which, if either, has a higher rank.
+
 
