@@ -1,17 +1,20 @@
 package com.github.kpacha.jkata.pokerhand;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.github.kpacha.jkata.pokerhand.hand.HigherCard;
 import com.github.kpacha.jkata.pokerhand.hand.Pair;
+import com.github.kpacha.jkata.pokerhand.hand.ThreeOfAKind;
 import com.github.kpacha.jkata.pokerhand.hand.TwoPairs;
 
 public class PokerHand {
 
     private List<PokerCard> hand;
-    private static List<AbstractPokerHandArchetype> archetypes = new ArrayList<AbstractPokerHandArchetype>() {
+    private static List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
 	{
+	    add(new ThreeOfAKind());
 	    add(new TwoPairs());
 	    add(new Pair());
 	    add(new HigherCard());
