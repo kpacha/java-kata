@@ -29,4 +29,8 @@ public class PokerCard {
     public int compareTo(PokerCard card) {
 	return getNumericValue() - card.getNumericValue();
     }
+
+    public String getCardValue() {
+	return card.substring(0, 1);
+    }
 }

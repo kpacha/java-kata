@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import com.github.kpacha.jkata.pokerhand.PokerCard;
+import com.github.kpacha.jkata.pokerhand.PokerHand;
 
 public class PokerHandTest extends TestCase {
 
