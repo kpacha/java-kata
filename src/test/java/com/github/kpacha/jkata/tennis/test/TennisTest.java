@@ -37,4 +37,10 @@ public class TennisTest extends TestCase {
 	playerOneScores(2);
 	assertEquals("30 - 0", game.getScore());
     }
+
+    @Test
+    public void testThirdPointScore() {
+	playerOneScores(3);
+	assertEquals("45 - 0", game.getScore());
+    }
 }
