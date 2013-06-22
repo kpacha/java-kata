@@ -5,8 +5,8 @@ import com.github.kpacha.jkata.pokerhand.PokerCard;
 
 public class TwoPairs extends AbstractNumberOfAKind {
 
-    private PokerCard higherPair = null;
-    private PokerCard lowerPair = null;
+    protected PokerCard higherScored = null;
+    protected PokerCard lowerScored = null;
 
     public TwoPairs() {
 	name = "Two Pairs";
@@ -15,11 +15,11 @@ public class TwoPairs extends AbstractNumberOfAKind {
 
     @Override
     public String getHandDescription() {
-	return higherPair.getCardValue() + "&" + lowerPair.getCardValue();
+	return higherScored.getCardValue() + "&" + lowerScored.getCardValue();
     }
 
     public int getNumericValue() {
-	return higherPair.getNumericValue() * 20 + lowerPair.getNumericValue();
+	return higherScored.getNumericValue() * 20 + lowerScored.getNumericValue();
     }
 
     @Override
@@ -28,11 +28,11 @@ public class TwoPairs extends AbstractNumberOfAKind {
 	PokerCard secondPair = findNOfAKind(hand.getCards(), firstPair, 1);
 	if (firstPair != null && secondPair != null) {
 	    if (firstPair.getNumericValue() < secondPair.getNumericValue()) {
-		higherPair = secondPair;
-		lowerPair = firstPair;
+		higherScored = secondPair;
+		lowerScored = firstPair;
 	    } else {
-		higherPair = firstPair;
-		lowerPair = secondPair;
+		higherScored = firstPair;
+		lowerScored = secondPair;
 	    }
 	}
 	return this;
@@ -40,7 +40,7 @@ public class TwoPairs extends AbstractNumberOfAKind {
 
     @Override
     public boolean match() {
-	return higherPair != null && lowerPair != null;
+	return higherScored != null && lowerScored != null;
     }
 
     @Override
