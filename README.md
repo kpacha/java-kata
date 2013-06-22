@@ -1,6 +1,8 @@
 JAVA-KATA
 =========
-a simple collection of katas in java
+[![Build Status](https://secure.travis-ci.org/kpacha/java-kata.png?branch=master)](https://travis-ci.org/kpacha/java-kata)
+
+A collection of (easy) katas in java
 
 ###Prime Numbers
 
