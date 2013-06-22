@@ -50,4 +50,10 @@ public class PokerHandTest extends TestCase {
 	PokerCard lowerCard = new PokerCard("5H");
 	assertTrue(higherCard.compareTo(lowerCard) > 0);
     }
+
+    @Test
+    public void testFindHigherCardOfAHand() {
+	PokerHand hand = new PokerHand("AH", "5H", "9S", "3S", "2C");
+	assertEquals("High Card : A", hand.findHand());
+    }
 }
