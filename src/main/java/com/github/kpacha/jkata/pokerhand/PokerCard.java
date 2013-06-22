@@ -34,4 +34,8 @@ public class PokerCard implements Comparable<PokerCard> {
     public String getCardValue() {
 	return card.substring(0, 1);
     }
+
+    public String getCardSuit() {
+	return card.substring(1);
+    }
 }
