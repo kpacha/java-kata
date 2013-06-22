@@ -19,5 +19,4 @@ public class PokerCard {
 	    return 9;
 	return 5;
     }
-
 }
