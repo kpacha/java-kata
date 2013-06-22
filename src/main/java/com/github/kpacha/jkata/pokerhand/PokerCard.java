@@ -1,22 +1,28 @@
 package com.github.kpacha.jkata.pokerhand;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PokerCard {
 
     private String card;
+    private Map<Character, Integer> specialCards = new HashMap<Character, Integer>(
+	    4) {
+	{
+	    put('A', 13);
+	    put('K', 12);
+	    put('Q', 11);
+	    put('J', 10);
+	}
+    };
 
     public PokerCard(String card) {
 	this.card = card;
     }
 
     public int getNumericValue() {
-	if (card.charAt(0) == 'A')
-	    return 13;
-	if (card.charAt(0) == 'K')
-	    return 12;
-	if (card.charAt(0) == 'Q')
-	    return 11;
-	if (card.charAt(0) == 'J')
-	    return 10;
+	if (specialCards.containsKey(card.charAt(0)))
+	    return specialCards.get(card.charAt(0));
 	return Integer.parseInt(card.substring(0, 1));
     }
 }
