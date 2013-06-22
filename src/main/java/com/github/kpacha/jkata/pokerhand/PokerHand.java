@@ -65,4 +65,12 @@ public class PokerHand {
     public List<PokerCard> getCards() {
 	return hand;
     }
+
+    public int getHandRank() {
+	return handArchetype.getHandRank();
+    }
+
+    public int compareTo(PokerHand hand) {
+	return getHandRank() - hand.getHandRank();
+    }
 }
