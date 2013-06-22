@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.github.kpacha.jkata.pokerhand.hand.FourOfAKind;
 import com.github.kpacha.jkata.pokerhand.hand.HigherCard;
 import com.github.kpacha.jkata.pokerhand.hand.Pair;
 import com.github.kpacha.jkata.pokerhand.hand.ThreeOfAKind;
@@ -14,6 +15,7 @@ public class PokerHand {
     private List<PokerCard> hand;
     private static List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
 	{
+	    add(new FourOfAKind());
 	    add(new ThreeOfAKind());
 	    add(new TwoPairs());
 	    add(new Pair());
