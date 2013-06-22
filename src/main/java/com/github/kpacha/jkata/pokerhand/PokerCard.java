@@ -9,10 +9,11 @@ public class PokerCard implements Comparable<PokerCard> {
     private Map<Character, Integer> specialCards = new HashMap<Character, Integer>(
 	    4) {
 	{
-	    put('A', 13);
-	    put('K', 12);
-	    put('Q', 11);
-	    put('J', 10);
+	    put('A', 14);
+	    put('K', 13);
+	    put('Q', 12);
+	    put('J', 11);
+	    put('T', 10);
 	}
     };
 

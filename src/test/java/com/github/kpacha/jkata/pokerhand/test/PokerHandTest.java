@@ -22,27 +22,33 @@ public class PokerHandTest extends TestCase {
     }
 
     @Test
+    public void testGetTenAsNumericValue() {
+	PokerCard card = new PokerCard("TH");
+	assertEquals(10, card.getNumericValue());
+    }
+
+    @Test
     public void testGetJackAsNumericValue() {
 	PokerCard card = new PokerCard("JH");
-	assertEquals(10, card.getNumericValue());
+	assertEquals(11, card.getNumericValue());
     }
 
     @Test
     public void testGetQueenAsNumericValue() {
 	PokerCard card = new PokerCard("QH");
-	assertEquals(11, card.getNumericValue());
+	assertEquals(12, card.getNumericValue());
     }
 
     @Test
     public void testGetKingAsNumericValue() {
 	PokerCard card = new PokerCard("KH");
-	assertEquals(12, card.getNumericValue());
+	assertEquals(13, card.getNumericValue());
     }
 
     @Test
     public void testGetAceAsNumericValue() {
 	PokerCard card = new PokerCard("AH");
-	assertEquals(13, card.getNumericValue());
+	assertEquals(14, card.getNumericValue());
     }
 
     @Test
