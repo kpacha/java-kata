@@ -66,11 +66,11 @@ public class PokerHand {
 	return hand;
     }
 
-    public int getHandRank() {
-	return handArchetype.getHandRank();
+    public AbstractPokerHandArchetype getArchetype() {
+	return handArchetype;
     }
 
     public int compareTo(PokerHand hand) {
-	return getHandRank() - hand.getHandRank();
+	return handArchetype.compareTo(hand.getArchetype());
     }
 }
