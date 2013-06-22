@@ -93,4 +93,10 @@ public class TennisTest extends TestCase {
 	setScore(6, 4);
 	assertEquals("Player 1 wins", game.getScore());
     }
+
+    @Test
+    public void testPlayerTwoWinsAfterAdvantageScore() {
+	setScore(6, 8);
+	assertEquals("Player 2 wins", game.getScore());
+    }
 }
