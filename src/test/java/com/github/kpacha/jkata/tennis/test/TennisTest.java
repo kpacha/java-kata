@@ -16,9 +16,11 @@ public class TennisTest extends TestCase {
 	game = new Tennis();
     }
 
-    private void playerOneScores(int times) {
-	for (int counter = 0; counter < times; counter++)
+    private void setScore(int pointsPlayerOne, int pointsPlayerTwo) {
+	for (int counter = 0; counter < pointsPlayerOne; counter++)
 	    game.playerOneScores();
+	for (int counter = 0; counter < pointsPlayerTwo; counter++)
+	    game.playerTwoScores();
     }
 
     @Test
@@ -28,40 +30,37 @@ public class TennisTest extends TestCase {
 
     @Test
     public void testFirstPointScore() {
-	playerOneScores(1);
+	setScore(1, 0);
 	assertEquals("15 - 0", game.getScore());
     }
 
     @Test
     public void testSecondPointScore() {
-	playerOneScores(2);
+	setScore(2, 0);
 	assertEquals("30 - 0", game.getScore());
     }
 
     @Test
     public void testThirdPointScore() {
-	playerOneScores(3);
+	setScore(3, 0);
 	assertEquals("45 - 0", game.getScore());
     }
 
     @Test
     public void testPlayerOneWinsScore() {
-	playerOneScores(4);
+	setScore(4, 0);
 	assertEquals("Player 1 wins", game.getScore());
     }
 
     @Test
     public void testPlayerTwoFirstPointScore() {
-	game.playerTwoScores();
+	setScore(0, 1);
 	assertEquals("0 - 15", game.getScore());
     }
 
     @Test
     public void testDeuceScore() {
-	playerOneScores(3);
-	game.playerTwoScores();
-	game.playerTwoScores();
-	game.playerTwoScores();
+	setScore(3, 3);
 	assertEquals("Deuce", game.getScore());
     }
 }
