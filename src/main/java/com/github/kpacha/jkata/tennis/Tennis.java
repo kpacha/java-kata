@@ -5,6 +5,8 @@ public class Tennis {
     private int playerOneScored = 0;
 
     public String getScore() {
+	if (playerOneScored == 3)
+	    return "45 - 0";
 	if (playerOneScored == 2)
 	    return "30 - 0";
 	if (playerOneScored == 1)
