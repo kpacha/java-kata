@@ -41,8 +41,8 @@ public class AbstractNumberOfAKind extends AbstractPokerHandArchetype {
 	String cardValueToAvoid = (cardToAvoid != null) ? cardToAvoid
 		.getCardValue() : "";
 	PokerCard result = null;
-	int appearances = 0;
 	OUTERMOST: for (int i = 0; i < 4; i++) {
+	    int appearances = 0;
 	    if (hand.get(i).getCardValue().equals(cardValueToAvoid))
 		continue;
 	    for (int j = i + 1; j < 5; j++) {

@@ -5,7 +5,7 @@ public class FourOfAKind extends AbstractNumberOfAKind {
     public FourOfAKind() {
 	name = "Poker";
 	rank = 7;
-	numberOfAppearences = 4;
+	numberOfAppearences = 3;
     }
 
 }
