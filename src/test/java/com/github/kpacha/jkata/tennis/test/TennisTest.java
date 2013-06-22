@@ -49,4 +49,10 @@ public class TennisTest extends TestCase {
 	playerOneScores(4);
 	assertEquals("Player 1 wins", game.getScore());
     }
+
+    @Test
+    public void testPlayerTwoFirstPointScore() {
+	game.playerTwoScores();
+	assertEquals("0 - 15", game.getScore());
+    }
 }
