@@ -18,12 +18,16 @@ public class PokerHand {
     }
 
     public String findHand() {
+	return "High Card : " + findHigherCard().getCardValue();
+    }
+
+    private PokerCard findHigherCard() {
 	PokerCard higherCard = hand.get(0);
 	for (PokerCard currentCard : hand) {
 	    if (higherCard.compareTo(currentCard) < 0) {
 		higherCard = currentCard;
 	    }
 	}
-	return "High Card : " + higherCard.getCardValue();
+	return higherCard;
     }
 }
