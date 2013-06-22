@@ -18,25 +18,59 @@ public class PokerHand {
     }
 
     public String findHand() {
-	String result = findPair();
-	if (result != null)
-	    result = "Pair : " + result;
-	else
-	    result = "High Card : " + findHigherCard().getCardValue();
+	String result;
+	List<PokerCard> pairs = findTwoPairs();
+	if (pairs != null) {
+	    result = "Two Pairs : " + pairs.get(0).getCardValue() + "&"
+		    + pairs.get(1).getCardValue();
+	} else {
+	    PokerCard pair = findPair();
+	    if (pair != null)
+		result = "Pair : " + pair.getCardValue();
+	    else
+		result = "High Card : " + findHigherCard().getCardValue();
+	}
 	return result;
     }
 
-    private String findPair() {
-	String result = null;
-	for (int i = 0; i < 4; i++) {
+    private List<PokerCard> findTwoPairs() {
+	List<PokerCard> result = null;
+	PokerCard firstPair = findPair();
+	PokerCard secondPair = findPair(firstPair);
+	if (firstPair != null && secondPair != null) {
+	    result = new ArrayList<PokerCard>(2);
+	    if (firstPair.getNumericValue() < secondPair.getNumericValue()) {
+		result.add(secondPair);
+		result.add(firstPair);
+	    } else {
+		result.add(firstPair);
+		result.add(secondPair);
+	    }
+	}
+	return result;
+    }
+
+    private PokerCard findPair(PokerCard cardToAvoid) {
+	String cardValueToAvoid = (cardToAvoid != null) ? cardToAvoid
+		.getCardValue() : "";
+	PokerCard result = null;
+	OUTERMOST: for (int i = 0; i < 4; i++) {
+	    if (hand.get(i).getCardValue().equals(cardValueToAvoid))
+		continue;
 	    for (int j = i + 1; j < 5; j++) {
-		if (hand.get(i).compareTo(hand.get(j)) == 0) {
-		    result = hand.get(i).getCardValue();
+		if (hand.get(j).getCardValue().equals(cardValueToAvoid))
 		    continue;
+		if (hand.get(i).compareTo(hand.get(j)) == 0) {
+		    result = hand.get(i);
+		    break OUTERMOST;
 		}
 	    }
 	}
 	return result;
+    }
+
+    private PokerCard findPair() {
+	return findPair(null);
     }
 
     private PokerCard findHigherCard() {
