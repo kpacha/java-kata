@@ -111,4 +111,11 @@ public class PokerHandTest extends TestCase {
 	PokerHand hand = new PokerHand("2H", "5H", "4H", "3H", "6H");
 	assertEquals("Straight Flush : H TO 6", hand.findHand());
     }
+
+    @Test
+    public void testPairWinsHigherCard() {
+	PokerHand pairHand = new PokerHand("2H", "5H", "9S", "3S", "9C");
+	PokerHand loserHand = new PokerHand("AH", "5H", "KS", "3S", "9C");
+	assertTrue(pairHand.compareTo(loserHand) > 0);
+    }
 }
