@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.github.kpacha.jkata.pokerhand.hand.Flush;
 import com.github.kpacha.jkata.pokerhand.hand.FourOfAKind;
+import com.github.kpacha.jkata.pokerhand.hand.FullHouse;
 import com.github.kpacha.jkata.pokerhand.hand.HigherCard;
 import com.github.kpacha.jkata.pokerhand.hand.Pair;
 import com.github.kpacha.jkata.pokerhand.hand.Straight;
@@ -19,6 +20,7 @@ public class PokerHand {
     private List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
 	{
 	    add(new FourOfAKind());
+	    add(new FullHouse());
 	    add(new Flush());
 	    add(new Straight());
 	    add(new ThreeOfAKind());
