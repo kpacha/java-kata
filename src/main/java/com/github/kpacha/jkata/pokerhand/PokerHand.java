@@ -18,6 +18,12 @@ public class PokerHand {
     }
 
     public String findHand() {
+	for (int i = 0; i < 4; i++) {
+	    for (int j = i + 1; j < 5; j++) {
+		if (hand.get(i).compareTo(hand.get(j)) == 0)
+		    return "Pair : " + hand.get(i).getCardValue();
+	    }
+	}
 	return "High Card : " + findHigherCard().getCardValue();
     }
 
