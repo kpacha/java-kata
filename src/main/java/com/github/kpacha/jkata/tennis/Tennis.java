@@ -21,6 +21,8 @@ public class Tennis {
     }
 
     private String getScoreValue(int points) {
+	if (points == 3)
+	    return "40";
 	return String.valueOf(15 * points);
     }
 
