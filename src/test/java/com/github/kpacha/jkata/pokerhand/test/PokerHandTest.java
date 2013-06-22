@@ -118,4 +118,60 @@ public class PokerHandTest extends TestCase {
 	PokerHand loserHand = new PokerHand("AH", "5H", "KS", "3S", "9C");
 	assertTrue(pairHand.compareTo(loserHand) > 0);
     }
+
+    @Test
+    public void testTwoPairsWinASinglePair() {
+	PokerHand winnerHand = new PokerHand("2H", "5H", "9S", "2S", "9C");
+	PokerHand loserHand = new PokerHand("AH", "5H", "KS", "3S", "AC");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testThreeOfAKindWinTwoPairs() {
+	PokerHand winnerHand = new PokerHand("2H", "5H", "2C", "2S", "9C");
+	PokerHand loserHand = new PokerHand("AH", "KH", "KS", "3S", "AC");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testStraightWinThreeOfAKind() {
+	PokerHand loserHand = new PokerHand("2H", "5H", "2C", "2S", "9C");
+	PokerHand winnerHand = new PokerHand("2H", "5H", "4C", "3S", "6D");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testFlushWinsStraight() {
+	PokerHand winnerHand = new PokerHand("2H", "5H", "4H", "AH", "TH");
+	PokerHand loserHand = new PokerHand("2H", "5H", "4C", "3S", "6D");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testAFullHouseWinsAFlush() {
+	PokerHand winnerHand = new PokerHand("2H", "2S", "TS", "TC", "TH");
+	PokerHand loserHand = new PokerHand("2H", "5H", "4H", "AH", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testAPokerWinsAFullHouse() {
+	PokerHand winnerHand = new PokerHand("3H", "3S", "3D", "3C", "TH");
+	PokerHand loserHand = new PokerHand("2H", "2S", "TS", "TC", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testAStraightFflushWinsAPoker() {
+	PokerHand winnerHand = new PokerHand("9H", "QH", "JH", "KH", "TH");
+	PokerHand loserHand = new PokerHand("3H", "3S", "3D", "3C", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherStraightFflush() {
+	PokerHand winnerHand = new PokerHand("9H", "QH", "JH", "KH", "TH");
+	PokerHand loserHand = new PokerHand("3H", "2H", "5H", "4H", "6H");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
 }
