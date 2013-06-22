@@ -1,5 +1,6 @@
 package com.github.kpacha.jkata.pokerhand.hand;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.github.kpacha.jkata.pokerhand.AbstractPokerHandArchetype;
@@ -7,7 +8,7 @@ import com.github.kpacha.jkata.pokerhand.PokerCard;
 
 public class HigherCard extends AbstractPokerHandArchetype {
 
-    private PokerCard higherCard = null;
+    protected PokerCard higherCard = null;
 
     public HigherCard() {
 	name = "High Card";
@@ -20,13 +21,8 @@ public class HigherCard extends AbstractPokerHandArchetype {
     }
 
     private PokerCard findHigherCard(List<PokerCard> hand) {
-	PokerCard higherCard = hand.get(0);
-	for (PokerCard currentCard : hand) {
-	    if (higherCard.compareTo(currentCard) < 0) {
-		higherCard = currentCard;
-	    }
-	}
-	return higherCard;
+	Collections.sort(hand);
+	return hand.get(4);
     }
 
     public int getNumericValue() {
@@ -34,7 +30,7 @@ public class HigherCard extends AbstractPokerHandArchetype {
     }
 
     @Override
-    public AbstractPokerHandArchetype processHand() {
+    protected AbstractPokerHandArchetype processHand() {
 	higherCard = findHigherCard(hand.getCards());
 	return this;
     }
