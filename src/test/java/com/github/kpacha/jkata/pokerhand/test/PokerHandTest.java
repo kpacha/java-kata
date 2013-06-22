@@ -99,4 +99,10 @@ public class PokerHandTest extends TestCase {
 	PokerHand hand = new PokerHand("2H", "5H", "4H", "AH", "TH");
 	assertEquals("Flush : H TO A", hand.findHand());
     }
+
+    @Test
+    public void testDetectFullHouse() {
+	PokerHand hand = new PokerHand("2H", "2S", "2C", "TC", "TH");
+	assertEquals("Full House : 2&T", hand.findHand());
+    }
 }
