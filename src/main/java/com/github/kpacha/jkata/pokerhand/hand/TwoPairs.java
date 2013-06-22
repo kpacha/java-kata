@@ -19,7 +19,8 @@ public class TwoPairs extends AbstractNumberOfAKind {
     }
 
     public int getNumericValue() {
-	return higherScored.getNumericValue() * 20 + lowerScored.getNumericValue();
+	return higherScored.getNumericValue() * 20
+		+ lowerScored.getNumericValue();
     }
 
     @Override
@@ -45,6 +46,10 @@ public class TwoPairs extends AbstractNumberOfAKind {
 
     @Override
     public int compareEqualRanked(AbstractPokerHandArchetype hand) {
-	return getNumericValue() - ((TwoPairs) hand).getNumericValue();
+	int difference = getNumericValue() - hand.getNumericValue();
+	if (difference == 0) {
+	    difference = super.compareEqualRanked(hand);
+	}
+	return difference;
     }
 }

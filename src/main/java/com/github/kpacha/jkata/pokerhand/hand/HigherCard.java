@@ -39,10 +39,4 @@ public class HigherCard extends AbstractPokerHandArchetype {
     public boolean match() {
 	return true;
     }
-
-    @Override
-    public int compareEqualRanked(AbstractPokerHandArchetype hand) {
-	return higherCard.getNumericValue()
-		- ((HigherCard) hand).getNumericValue();
-    }
 }

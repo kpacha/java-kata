@@ -162,16 +162,114 @@ public class PokerHandTest extends TestCase {
     }
 
     @Test
-    public void testAStraightFflushWinsAPoker() {
+    public void testDetetcTheHigherFullHouse() {
+	PokerHand winnerHand = new PokerHand("3H", "3S", "3D", "TD", "TS");
+	PokerHand loserHand = new PokerHand("2H", "2S", "2S", "TC", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testAStraightFlushWinsAPoker() {
 	PokerHand winnerHand = new PokerHand("9H", "QH", "JH", "KH", "TH");
 	PokerHand loserHand = new PokerHand("3H", "3S", "3D", "3C", "TH");
 	assertTrue(winnerHand.compareTo(loserHand) > 0);
     }
 
     @Test
-    public void testDetectTheHigherStraightFflush() {
+    public void testDetectTheHigherPair() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "3C", "4H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "5S", "8C", "8D", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherPairByAThirdCard() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "AC", "4H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "5S", "9C", "9D", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherPairByAFouthCard() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "3C", "7H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "5S", "8C", "8D", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherPairByTheFithCard() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "3C", "4H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "4S", "8C", "8D", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherTwoPairsByBiggerPair() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "3C", "3H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "2S", "8C", "8D", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherTwoPairsBySecondPair() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "3C", "3H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "2S", "9C", "9D", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherTwoPairsByFithCard() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "3C", "3H", "TC");
+	PokerHand loserHand = new PokerHand("3H", "3S", "9C", "9D", "5H");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherThreeOfAKind() {
+	PokerHand winnerHand = new PokerHand("9H", "9S", "9C", "3H", "TC");
+	PokerHand loserHand = new PokerHand("2H", "2S", "2C", "AH", "TH");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherPoker() {
+	PokerHand winnerHand = new PokerHand("9H", "9H", "9H", "9H", "TH");
+	PokerHand loserHand = new PokerHand("2H", "2H", "2H", "2H", "6H");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherStraightFlush() {
 	PokerHand winnerHand = new PokerHand("9H", "QH", "JH", "KH", "TH");
 	PokerHand loserHand = new PokerHand("3H", "2H", "5H", "4H", "6H");
 	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherStraight() {
+	PokerHand winnerHand = new PokerHand("9H", "QD", "JH", "KH", "TH");
+	PokerHand loserHand = new PokerHand("3H", "2H", "5D", "4H", "6H");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTheHigherFlush() {
+	PokerHand winnerHand = new PokerHand("9H", "QH", "3H", "KH", "AH");
+	PokerHand loserHand = new PokerHand("2H", "7H", "5H", "4H", "6H");
+	assertTrue(winnerHand.compareTo(loserHand) > 0);
+    }
+
+    @Test
+    public void testDetectTie() {
+	PokerHand firstHand = new PokerHand("2H", "3D", "5S", "9C", "KD");
+	PokerHand secondHand = new PokerHand("2C", "3S", "5H", "9S", "KH");
+	assertTrue(firstHand.compareTo(secondHand) == 0);
+    }
+
+    @Test
+    public void testDetectWinnerByTheSecondHigherCard() {
+	PokerHand firstHand = new PokerHand("2H", "3D", "5S", "9C", "KD");
+	PokerHand loserHand = new PokerHand("2C", "3S", "5H", "8S", "KH");
+	assertTrue(firstHand.compareTo(loserHand) > 0);
     }
 }

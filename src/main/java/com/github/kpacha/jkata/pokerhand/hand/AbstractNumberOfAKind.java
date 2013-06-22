@@ -26,14 +26,18 @@ public class AbstractNumberOfAKind extends AbstractPokerHandArchetype {
 	return subject != null;
     }
 
+    @Override
     public int getNumericValue() {
 	return subject.getNumericValue();
     }
 
     @Override
-    public int compareEqualRanked(AbstractPokerHandArchetype hand) {
-	return subject.getNumericValue()
-		- ((AbstractNumberOfAKind) hand).getNumericValue();
+    protected int compareEqualRanked(AbstractPokerHandArchetype hand) {
+	int difference = getNumericValue() - hand.getNumericValue();
+	if (difference == 0) {
+	    difference = super.compareEqualRanked(hand);
+	}
+	return difference;
     }
 
     public PokerCard findNOfAKind(List<PokerCard> hand, PokerCard cardToAvoid,
