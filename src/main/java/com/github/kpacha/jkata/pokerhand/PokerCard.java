@@ -17,8 +17,6 @@ public class PokerCard {
 	    return 11;
 	if (card.charAt(0) == 'J')
 	    return 10;
-	if (card.charAt(0) == '9')
-	    return 9;
-	return 5;
+	return Integer.parseInt(card.substring(0, 1));
     }
 }
