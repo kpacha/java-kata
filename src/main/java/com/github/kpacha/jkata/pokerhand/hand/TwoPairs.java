@@ -3,7 +3,7 @@ package com.github.kpacha.jkata.pokerhand.hand;
 import com.github.kpacha.jkata.pokerhand.AbstractPokerHandArchetype;
 import com.github.kpacha.jkata.pokerhand.PokerCard;
 
-public class TwoPairs extends Pair {
+public class TwoPairs extends AbstractNumberOfAKind {
 
     private PokerCard higherPair = null;
     private PokerCard lowerPair = null;
@@ -24,8 +24,8 @@ public class TwoPairs extends Pair {
 
     @Override
     public AbstractPokerHandArchetype processHand() {
-	PokerCard firstPair = findPair(hand.getCards(), null);
-	PokerCard secondPair = findPair(hand.getCards(), firstPair);
+	PokerCard firstPair = findNOfAKind(hand.getCards(), null, 1);
+	PokerCard secondPair = findNOfAKind(hand.getCards(), firstPair, 1);
 	if (firstPair != null && secondPair != null) {
 	    if (firstPair.getNumericValue() < secondPair.getNumericValue()) {
 		higherPair = secondPair;
