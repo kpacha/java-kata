@@ -12,9 +12,13 @@ public class Tennis {
 	    return "Advantage Player 1";
 	if (isAdvantagePlayerTwo())
 	    return "Advantage Player 2";
-	if (playerOneScored > 3 && playerOneScored > playerTwoScored + 1)
+	if (playerOneWins())
 	    return "Player 1 wins";
 	return (15 * playerOneScored) + " - " + (15 * playerTwoScored);
+    }
+
+    private boolean playerOneWins() {
+	return playerOneScored > 3 && playerOneScored > playerTwoScored + 1;
     }
 
     private boolean isAdvantagePlayerOne() {
