@@ -57,4 +57,10 @@ public class PokerHandTest extends TestCase {
 	PokerHand hand = new PokerHand("AH", "5H", "9S", "3S", "2C");
 	assertEquals("High Card : A", hand.findHand());
     }
+
+    @Test
+    public void testDetectAPair() {
+	PokerHand hand = new PokerHand("AH", "5H", "9S", "3S", "9C");
+	assertEquals("Pair : A", hand.findHand());
+    }
 }
