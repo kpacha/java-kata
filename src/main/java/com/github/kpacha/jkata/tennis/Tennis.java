@@ -16,8 +16,7 @@ public class Tennis {
     }
 
     private boolean isAdvantage() {
-	return playerOneScored == 4 && playerTwoScored == 3
-		|| playerOneScored == 5 && playerTwoScored == 4;
+	return playerOneScored == playerTwoScored + 1 && playerOneScored > 3;
     }
 
     private boolean isDeuce() {
