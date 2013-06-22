@@ -6,8 +6,7 @@ public class Tennis {
     private int playerTwoScored = 0;
 
     public String getScore() {
-	if (playerOneScored == 3 && playerTwoScored == 3
-		|| playerOneScored == 4 && playerTwoScored == 4)
+	if (isDeuce())
 	    return "Deuce";
 	if (playerOneScored == 4) {
 	    if (playerTwoScored == 3)
@@ -16,6 +15,11 @@ public class Tennis {
 		return "Player 1 wins";
 	}
 	return (15 * playerOneScored) + " - " + (15 * playerTwoScored);
+    }
+
+    private boolean isDeuce() {
+	return playerOneScored == 3 && playerTwoScored == 3
+		|| playerOneScored == 4 && playerTwoScored == 4;
     }
 
     public void playerOneScores() {
