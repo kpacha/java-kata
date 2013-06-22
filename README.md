@@ -35,3 +35,18 @@ For example, the potential anagrams of abcd are
     bacd, badc, bcad, bcda, bdac, bdca,
     cabd, cadb, cbad, cbda, cdab, cdba,
     dabc, dacb, dbac, dbca, dcab, dcba
+
+###Tennis Kata
+
+(from http://codingdojo.org/cgi-bin/wiki.pl?KataTennis)
+
+A tennis score calculator. The scoring system is rather simple:
+
+* Each player can have either of these points in one game 0 15 30 40
+* If you have 40 and you win the ball you win the game, however there are special rules.
+* If both have 40 the players are deuce.
+* If the game is in deuce, the winner of a ball will have advantage and game ball.
+* If the player with advantage wins the ball he wins the game
+* If the player without advantage wins they are back at deuce.
+
+
