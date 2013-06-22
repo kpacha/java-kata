@@ -18,8 +18,7 @@ public class Tennis {
     }
 
     private boolean isDeuce() {
-	return playerOneScored == 3 && playerTwoScored == 3
-		|| playerOneScored == 4 && playerTwoScored == 4;
+	return playerOneScored == playerTwoScored && playerTwoScored > 2;
     }
 
     public void playerOneScores() {
