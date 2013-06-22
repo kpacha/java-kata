@@ -3,9 +3,20 @@ package com.github.kpacha.jkata.pokerhand;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.kpacha.jkata.pokerhand.hand.HigherCard;
+import com.github.kpacha.jkata.pokerhand.hand.Pair;
+import com.github.kpacha.jkata.pokerhand.hand.TwoPairs;
+
 public class PokerHand {
 
     private List<PokerCard> hand;
+    private static List<AbstractPokerHandArchetype> archetypes = new ArrayList<AbstractPokerHandArchetype>() {
+	{
+	    add(new TwoPairs());
+	    add(new Pair());
+	    add(new HigherCard());
+	}
+    };
 
     public PokerHand(String card1, String card2, String card3, String card4,
 	    String card5) {
@@ -18,68 +29,19 @@ public class PokerHand {
     }
 
     public String findHand() {
-	String result;
-	List<PokerCard> pairs = findTwoPairs();
-	if (pairs != null) {
-	    result = "Two Pairs : " + pairs.get(0).getCardValue() + "&"
-		    + pairs.get(1).getCardValue();
-	} else {
-	    PokerCard pair = findPair();
-	    if (pair != null)
-		result = "Pair : " + pair.getCardValue();
-	    else
-		result = "High Card : " + findHigherCard().getCardValue();
-	}
-	return result;
-    }
-
-    private List<PokerCard> findTwoPairs() {
-	List<PokerCard> result = null;
-	PokerCard firstPair = findPair();
-	PokerCard secondPair = findPair(firstPair);
-	if (firstPair != null && secondPair != null) {
-	    result = new ArrayList<PokerCard>(2);
-	    if (firstPair.getNumericValue() < secondPair.getNumericValue()) {
-		result.add(secondPair);
-		result.add(firstPair);
-	    } else {
-		result.add(firstPair);
-		result.add(secondPair);
+	String result = null;
+	for (AbstractPokerHandArchetype handArchetype : archetypes) {
+	    handArchetype.processHand(this);
+	    if (handArchetype.match()) {
+		result = handArchetype.getName() + " : "
+			+ handArchetype.getHandDescription();
+		break;
 	    }
 	}
 	return result;
     }
 
-    private PokerCard findPair(PokerCard cardToAvoid) {
-	String cardValueToAvoid = (cardToAvoid != null) ? cardToAvoid
-		.getCardValue() : "";
-	PokerCard result = null;
-	OUTERMOST: for (int i = 0; i < 4; i++) {
-	    if (hand.get(i).getCardValue().equals(cardValueToAvoid))
-		continue;
-	    for (int j = i + 1; j < 5; j++) {
-		if (hand.get(j).getCardValue().equals(cardValueToAvoid))
-		    continue;
-		if (hand.get(i).compareTo(hand.get(j)) == 0) {
-		    result = hand.get(i);
-		    break OUTERMOST;
-		}
-	    }
-	}
-	return result;
-    }
-
-    private PokerCard findPair() {
-	return findPair(null);
-    }
-
-    private PokerCard findHigherCard() {
-	PokerCard higherCard = hand.get(0);
-	for (PokerCard currentCard : hand) {
-	    if (higherCard.compareTo(currentCard) < 0) {
-		higherCard = currentCard;
-	    }
-	}
-	return higherCard;
+    public List<PokerCard> getCards() {
+	return hand;
     }
 }
