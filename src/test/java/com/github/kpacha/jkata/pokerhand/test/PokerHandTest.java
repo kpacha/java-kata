@@ -43,4 +43,11 @@ public class PokerHandTest extends TestCase {
 	PokerCard card = new PokerCard("AH");
 	assertEquals(13, card.getNumericValue());
     }
+
+    @Test
+    public void testGetHigherCard() {
+	PokerCard higherCard = new PokerCard("AH");
+	PokerCard lowerCard = new PokerCard("5H");
+	assertTrue(higherCard.compareTo(lowerCard) > 0);
+    }
 }
