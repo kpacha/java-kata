@@ -9,6 +9,8 @@ public class PokerCard {
     }
 
     public int getNumericValue() {
+	if (card.charAt(0) == 'A')
+	    return 13;
 	if (card.charAt(0) == 'K')
 	    return 12;
 	if (card.charAt(0) == 'Q')
