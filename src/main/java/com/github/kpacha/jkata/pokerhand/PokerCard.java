@@ -3,7 +3,7 @@ package com.github.kpacha.jkata.pokerhand;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PokerCard {
+public class PokerCard implements Comparable<PokerCard> {
 
     private String card;
     private Map<Character, Integer> specialCards = new HashMap<Character, Integer>(
