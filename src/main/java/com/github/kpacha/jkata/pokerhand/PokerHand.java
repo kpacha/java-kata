@@ -31,6 +31,7 @@ public class PokerHand {
 	    add(new HigherCard());
 	}
     };
+    private AbstractPokerHandArchetype handArchetype;
 
     public PokerHand(String card1, String card2, String card3, String card4,
 	    String card5) {
@@ -41,15 +42,20 @@ public class PokerHand {
 	hand.add(new PokerCard(card4));
 	hand.add(new PokerCard(card5));
 	Collections.sort(hand);
+	handArchetype = findHandArchetype();
     }
 
     public String findHand() {
-	String result = null;
+	return handArchetype.getName() + " : "
+		+ handArchetype.getHandDescription();
+    }
+
+    private AbstractPokerHandArchetype findHandArchetype() {
+	AbstractPokerHandArchetype result = null;
 	for (AbstractPokerHandArchetype handArchetype : archetypes) {
 	    handArchetype.processHand(this);
 	    if (handArchetype.match()) {
-		result = handArchetype.getName() + " : "
-			+ handArchetype.getHandDescription();
+		result = handArchetype;
 		break;
 	    }
 	}
