@@ -16,7 +16,12 @@ public class Tennis {
 	    return "Player 1 wins";
 	if (playerTwoWins())
 	    return "Player 2 wins";
-	return (15 * playerOneScored) + " - " + (15 * playerTwoScored);
+	return getScoreValue(playerOneScored) + " - "
+		+ getScoreValue(playerTwoScored);
+    }
+
+    private String getScoreValue(int points) {
+	return String.valueOf(15 * points);
     }
 
     private boolean playerOneWins() {
