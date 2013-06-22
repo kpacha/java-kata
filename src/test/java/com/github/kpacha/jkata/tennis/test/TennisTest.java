@@ -20,4 +20,12 @@ public class TennisTest extends TestCase {
 	game.playerOneScores();
 	assertEquals("15 - 0", game.getScore());
     }
+
+    @Test
+    public void testSecondPointScore() {
+	Tennis game = new Tennis();
+	game.playerOneScores();
+	game.playerOneScores();
+	assertEquals("30 - 0", game.getScore());
+    }
 }
