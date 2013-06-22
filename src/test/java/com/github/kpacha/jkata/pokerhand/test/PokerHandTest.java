@@ -81,4 +81,10 @@ public class PokerHandTest extends TestCase {
 	PokerHand hand = new PokerHand("AH", "5H", "5C", "5S", "5D");
 	assertEquals("Poker : 5", hand.findHand());
     }
+
+    @Test
+    public void testDetectStraight() {
+	PokerHand hand = new PokerHand("2H", "5H", "4C", "3S", "6D");
+	assertEquals("Straight : 2-6", hand.findHand());
+    }
 }
