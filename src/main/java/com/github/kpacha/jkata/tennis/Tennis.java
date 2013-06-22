@@ -1,9 +1,20 @@
 package com.github.kpacha.jkata.tennis;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Tennis {
 
     private int playerOneScored = 0;
     private int playerTwoScored = 0;
+    private Map<Integer, String> equivalencies = new HashMap<Integer, String>() {
+	{
+	    put(0, "0");
+	    put(1, "15");
+	    put(2, "30");
+	    put(3, "40");
+	}
+    };
 
     public String getScore() {
 	if (isDeuce())
@@ -21,9 +32,7 @@ public class Tennis {
     }
 
     private String getScoreValue(int points) {
-	if (points == 3)
-	    return "40";
-	return String.valueOf(15 * points);
+	return equivalencies.get(points);
     }
 
     private boolean playerOneWins() {
