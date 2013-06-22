@@ -12,7 +12,7 @@ public class Tennis {
 	    return "Advantage Player 1";
 	if (isAdvantagePlayerTwo())
 	    return "Advantage Player 2";
-	if (playerOneScored == 4)
+	if (playerOneScored > 3 && playerOneScored > playerTwoScored + 1)
 	    return "Player 1 wins";
 	return (15 * playerOneScored) + " - " + (15 * playerTwoScored);
     }
