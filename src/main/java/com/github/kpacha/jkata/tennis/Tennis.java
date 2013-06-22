@@ -6,6 +6,8 @@ public class Tennis {
     private int playerTwoScored = 0;
 
     public String getScore() {
+	if (playerOneScored == 3 && playerTwoScored == 3)
+	    return "Deuce";
 	if (playerOneScored == 4)
 	    return "Player 1 wins";
 	return (15 * playerOneScored) + " - " + (15 * playerTwoScored);
