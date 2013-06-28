@@ -10,7 +10,7 @@ public abstract class AbstractPokerHandArchetype {
 
     public AbstractPokerHandArchetype processHand(PokerHand hand) {
 	this.hand = hand;
-	return processHand();
+	return processHand(hand.getCards());
     }
 
     public String getName() {
@@ -23,7 +23,8 @@ public abstract class AbstractPokerHandArchetype {
 
     public abstract String getHandDescription();
 
-    protected abstract AbstractPokerHandArchetype processHand();
+    protected abstract AbstractPokerHandArchetype processHand(
+	    List<PokerCard> cards);
 
     public abstract boolean match();
 

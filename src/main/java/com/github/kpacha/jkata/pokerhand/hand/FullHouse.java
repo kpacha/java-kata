@@ -1,5 +1,7 @@
 package com.github.kpacha.jkata.pokerhand.hand;
 
+import java.util.List;
+
 import com.github.kpacha.jkata.pokerhand.AbstractPokerHandArchetype;
 import com.github.kpacha.jkata.pokerhand.PokerCard;
 
@@ -11,9 +13,9 @@ public class FullHouse extends TwoPairs {
     }
 
     @Override
-    public AbstractPokerHandArchetype processHand() {
-	PokerCard firstPair = findNOfAKind(hand.getCards(), null, 2);
-	PokerCard secondPair = findNOfAKind(hand.getCards(), firstPair, 1);
+    public AbstractPokerHandArchetype processHand(List<PokerCard> cards) {
+	PokerCard firstPair = findNOfAKind(cards, null, 2);
+	PokerCard secondPair = findNOfAKind(cards, firstPair, 1);
 	if (firstPair != null && secondPair != null) {
 	    higherScored = firstPair;
 	    lowerScored = secondPair;

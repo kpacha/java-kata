@@ -16,8 +16,8 @@ public class AbstractNumberOfAKind extends AbstractPokerHandArchetype {
     }
 
     @Override
-    protected AbstractPokerHandArchetype processHand() {
-	subject = findNOfAKind(hand.getCards(), null, numberOfAppearences);
+    protected AbstractPokerHandArchetype processHand(List<PokerCard> cards) {
+	subject = findNOfAKind(cards, null, numberOfAppearences);
 	return this;
     }
 
@@ -45,11 +45,11 @@ public class AbstractNumberOfAKind extends AbstractPokerHandArchetype {
 	String cardValueToAvoid = (cardToAvoid != null) ? cardToAvoid
 		.getCardValue() : "";
 	PokerCard result = null;
-	OUTERMOST: for (int i = 0; i < 4; i++) {
+	OUTERMOST: for (int i = 0; i < hand.size() - 1; i++) {
 	    int appearances = 0;
 	    if (hand.get(i).getCardValue().equals(cardValueToAvoid))
 		continue;
-	    for (int j = i + 1; j < 5; j++) {
+	    for (int j = i + 1; j < hand.size(); j++) {
 		if (hand.get(j).getCardValue().equals(cardValueToAvoid))
 		    continue;
 		if (hand.get(i).compareTo(hand.get(j)) == 0) {

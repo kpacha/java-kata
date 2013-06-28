@@ -17,7 +17,7 @@ import com.github.kpacha.jkata.pokerhand.hand.TwoPairs;
 
 public class PokerHand {
 
-    private List<PokerCard> hand;
+    protected List<PokerCard> hand;
     private List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
 	{
 	    add(new StraightFlush());
@@ -31,16 +31,13 @@ public class PokerHand {
 	    add(new HigherCard());
 	}
     };
-    private AbstractPokerHandArchetype handArchetype;
+    protected AbstractPokerHandArchetype handArchetype;
 
-    public PokerHand(String card1, String card2, String card3, String card4,
-	    String card5) {
-	hand = new ArrayList<PokerCard>(5);
-	hand.add(new PokerCard(card1));
-	hand.add(new PokerCard(card2));
-	hand.add(new PokerCard(card3));
-	hand.add(new PokerCard(card4));
-	hand.add(new PokerCard(card5));
+    public PokerHand(String... cards) {
+	hand = new ArrayList<PokerCard>(cards.length);
+	for (String card : cards) {
+	    hand.add(new PokerCard(card));
+	}
 	Collections.sort(hand);
 	handArchetype = findHandArchetype();
     }

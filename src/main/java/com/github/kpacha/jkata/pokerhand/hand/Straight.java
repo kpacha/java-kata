@@ -1,5 +1,6 @@
 package com.github.kpacha.jkata.pokerhand.hand;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,22 +23,41 @@ public class Straight extends HigherCard {
     }
 
     @Override
-    protected AbstractPokerHandArchetype processHand() {
-	List<PokerCard> cards = hand.getCards();
+    protected AbstractPokerHandArchetype processHand(List<PokerCard> cards) {
 	Collections.sort(cards);
-	boolean isStraight = true;
-	for (int currentCard = 0; currentCard < 4; currentCard++) {
-	    if (cards.get(currentCard).compareTo(cards.get(currentCard + 1)) != -1) {
-		isStraight = false;
+	List<PokerCard> straight = getHigherStraight(cards);
+	if (straight.size() > 4) {
+	    higherCard = findHigherCard(straight);
+	    lowerCard = straight.get(straight.size() - 5);
+	    isStraight = true;
+	}
+	return this;
+    }
+
+    private List<PokerCard> getHigherStraight(List<PokerCard> cards) {
+	List<PokerCard> straight = new ArrayList<PokerCard>();
+	for (int i = cards.size() - 5; i >= 0; i--) {
+	    straight = getStraight(cards.subList(i, i + 5));
+	    if (straight.size() > 4) {
 		break;
 	    }
 	}
-	if (isStraight) {
-	    higherCard = cards.get(4);
-	    lowerCard = cards.get(0);
+	return straight;
+    }
+
+    private List<PokerCard> getStraight(List<PokerCard> cards) {
+	List<PokerCard> straight = new ArrayList<PokerCard>();
+	straight.add(cards.get(0));
+	for (int currentCard = 1; currentCard < 5; currentCard++) {
+	    if (straight.get(straight.size() - 1).compareTo(
+		    cards.get(currentCard)) == -1) {
+		straight.add(cards.get(currentCard));
+	    } else {
+		straight = new ArrayList<PokerCard>();
+		break;
+	    }
 	}
-	this.isStraight = isStraight;
-	return this;
+	return straight;
     }
 
     @Override

@@ -4,32 +4,31 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import com.github.kpacha.jkata.holdem.HoldEm;
 import com.github.kpacha.jkata.pokerhand.PokerHand;
 
 public class HoldEmTest extends TestCase {
 
     @Test
     public void testDetectAPair() {
-	HoldEm hand = new HoldEm("2H", "8C", "3S", "9D", "2C", "TC", "AH");
+	PokerHand hand = new PokerHand("2H", "8C", "3S", "9D", "2C", "TC", "AH");
 	assertEquals("Pair : 2", hand.findHand());
     }
 
     @Test
     public void testDetectTwoPairs() {
-	HoldEm hand = new HoldEm("2H", "9C", "3S", "9D", "2C", "TC", "AH");
+	PokerHand hand = new PokerHand("2H", "9C", "3S", "9D", "2C", "TC", "AH");
 	assertEquals("Two Pairs : 9&2", hand.findHand());
     }
 
     @Test
     public void testDetectThreeOfAKind() {
-	HoldEm hand = new HoldEm("2H", "9C", "3S", "4D", "2C", "2C", "AH");
+	PokerHand hand = new PokerHand("2H", "9C", "3S", "4D", "2C", "2C", "AH");
 	assertEquals("Three Of A Kind : 2", hand.findHand());
     }
 
     @Test
     public void testDetectFullHouse() {
-	HoldEm hand = new HoldEm("2H", "8C", "2S", "9D", "2C", "TC", "TH");
+	PokerHand hand = new PokerHand("2H", "8C", "2S", "9D", "2C", "TC", "TH");
 	assertEquals("Full House : 2&T", hand.findHand());
     }
 

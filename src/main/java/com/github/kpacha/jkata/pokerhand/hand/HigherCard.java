@@ -20,9 +20,9 @@ public class HigherCard extends AbstractPokerHandArchetype {
 	return higherCard.getCardValue();
     }
 
-    private PokerCard findHigherCard(List<PokerCard> hand) {
+    protected PokerCard findHigherCard(List<PokerCard> hand) {
 	Collections.sort(hand);
-	return hand.get(4);
+	return hand.get(hand.size() - 1);
     }
 
     public int getNumericValue() {
@@ -30,8 +30,8 @@ public class HigherCard extends AbstractPokerHandArchetype {
     }
 
     @Override
-    protected AbstractPokerHandArchetype processHand() {
-	higherCard = findHigherCard(hand.getCards());
+    protected AbstractPokerHandArchetype processHand(List<PokerCard> cards) {
+	higherCard = findHigherCard(cards);
 	return this;
     }
 

@@ -1,6 +1,9 @@
 package com.github.kpacha.jkata.pokerhand.hand;
 
+import java.util.List;
+
 import com.github.kpacha.jkata.pokerhand.AbstractPokerHandArchetype;
+import com.github.kpacha.jkata.pokerhand.PokerCard;
 
 public class StraightFlush extends Flush {
 
@@ -13,11 +16,12 @@ public class StraightFlush extends Flush {
     }
 
     @Override
-    protected AbstractPokerHandArchetype processHand() {
-	super.processHand();
+    protected AbstractPokerHandArchetype processHand(List<PokerCard> cards) {
+	super.processHand(cards);
 	if (isFlush) {
 	    straight = new Straight();
-	    isStraightFlush = straight.processHand(hand).match();
+	    isStraightFlush = straight.processHand(getFlush(cards, suit))
+		    .match();
 	}
 	return this;
     }
