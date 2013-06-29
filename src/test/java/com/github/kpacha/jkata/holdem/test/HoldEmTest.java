@@ -1,9 +1,13 @@
 package com.github.kpacha.jkata.holdem.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import com.github.kpacha.jkata.holdem.HoldEm;
 import com.github.kpacha.jkata.pokerhand.PokerHand;
 
 public class HoldEmTest extends TestCase {
@@ -54,6 +58,23 @@ public class HoldEmTest extends TestCase {
     public void testDetectStraightFlush() {
 	PokerHand hand = new PokerHand("2H", "4C", "5H", "4H", "3H", "KD", "6H");
 	assertEquals("Straight Flush : H TO 6", hand.findHand());
+    }
+
+    @Test
+    public void testDetectSeveralHands() {
+	HoldEm holdEm = new HoldEm(getDummyHands());
+	assertEquals((Integer) 0, holdEm.getWinner());
+    }
+
+    private List<PokerHand> getDummyHands() {
+	List<PokerHand> hands = new ArrayList<PokerHand>();
+	hands.add(new PokerHand("KC", "9S", "KS", "KD", "9D", "3C", "6D"));
+	hands.add(new PokerHand("9C", "AH", "KS", "KD", "9D", "3C", "6D"));
+	hands.add(new PokerHand("AC", "QC", "KS", "KD", "9D", "3C"));
+	hands.add(new PokerHand("9H", "5S"));
+	hands.add(new PokerHand("4D", "2D", "KS", "KD", "9D", "3C", "6D"));
+	hands.add(new PokerHand("7S", "TS", "KS", "KD", "9D"));
+	return hands;
     }
 
 }
