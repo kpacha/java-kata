@@ -15,7 +15,7 @@ import com.github.kpacha.jkata.pokerhand.hand.StraightFlush;
 import com.github.kpacha.jkata.pokerhand.hand.ThreeOfAKind;
 import com.github.kpacha.jkata.pokerhand.hand.TwoPairs;
 
-public class PokerHand {
+public class PokerHand implements Comparable<PokerHand> {
 
     protected List<PokerCard> hand;
     private List<AbstractPokerHandArchetype> archetypes = new LinkedList<AbstractPokerHandArchetype>() {
@@ -69,5 +69,9 @@ public class PokerHand {
 
     public int compareTo(PokerHand hand) {
 	return handArchetype.compareTo(hand.getArchetype());
+    }
+
+    public String toString() {
+	return hand.toString();
     }
 }
