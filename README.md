@@ -58,3 +58,7 @@ A tennis score calculator. The scoring system is rather simple:
 Compare several pairs of poker hands and indicate which, if either, has a higher rank.
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kpacha/java-kata/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
